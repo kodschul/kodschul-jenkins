@@ -5,6 +5,10 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'user-pass-id', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                     sh 'echo "Logging in as $USER with password $PASS"'
+
+                    if ($PASS == "secret-pass"){
+                        echo "Password correct"
+                    }
                 }
             }
         }

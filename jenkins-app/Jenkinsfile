@@ -1,0 +1,21 @@
+@Library('local-lib') _ 
+
+pipeline {
+    agent any 
+    stages {
+        stage("Checkout") {
+            steps {
+
+                script {
+                    def cfg = libraryResource("config.yml")
+                    echo "Loaded YAML: \n ${cfg}"
+
+                    def notify = new Notifier(this)
+                    notify.slack("ci", "Build checkout")
+                }
+
+                buildStage(skipTests: false, secretCode: "abcd")
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ services:
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
-      # - ~/Kodschul/Courses/kodschul-jenkins/jenkins-app:/project
+      - ../jenkins-app:/project
     networks:
       - jenkins-net
     restart: unless-stopped

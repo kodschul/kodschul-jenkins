@@ -9,7 +9,7 @@ pipeline {
                     def elements = ['el1', 'el2', 'el3', 'el4']
 
                     // func code block 
-                    def my_printer = { el -> echo  ">> ${el}"}
+                    def my_printer = { el -> echo  ">>[INFO]: ${el}"}
 
                     my_printer("Print custom")
                     my_printer(elements[0])
